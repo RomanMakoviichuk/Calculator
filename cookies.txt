@@ -1,5 +1,0 @@
-# HTTrack Website Copier Cookie File
-# This file format is compatible with Netscape cookies
-getsmileslim.com	TRUE	/	FALSE	1999999999	PHPSESSID	une0p8b9k6oaf9kq5r6o2ps0q4
-.w3.org	TRUE	/	FALSE	1999999999	__cf_bm	p_qeZ8CmnlhcBU6AyzuRDXLpE_51aBR.8uVV_ZCwhB0-1747826799-1.0.1.1-mZkzzQqR6206CKyfY9_QLfVkB3YEDsNkVUwsYzdAVdhiRcXMspY.3kkwcVrfsezXvZ0.ti4Bx5BQOIhAIkD3YU61vhu2FpJCLr_iA8WoUZ8
-
