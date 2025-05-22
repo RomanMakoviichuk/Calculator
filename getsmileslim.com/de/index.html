@@ -956,66 +956,60 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
 
 <script>
     jQuery(document).ready(function($) {
-        var userName = '';  // Variable to store the value of cm-name
-        var currentweight = '';  // Variable to store the value of cm-name
-        var targetweight = '';  // Variable to store the value of cm-name
-        var selectedGender = ''; // Variable to track whether male or female was selected
+        var userName = '';
+        var currentweight = '';
+        var targetweight = '';
+        var selectedGender = '';
 
-        // Ensure .first is shown by default, and others are hidden initially
         $('.first').show();
-        $('.two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .ten-male, .ten-female').hide(); // Hide all other sections initially
+        $('.two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .ten-male, .ten-female').hide();
 
-        // Input validation to allow only numbers
         function validateNumberInput(input) {
-            // Remove any non-numeric characters
             input.value = input.value.replace(/[^0-9]/g, '');
         }
 
-        // Attach the validation function to input events on the fields
         $('#form-field-cmname, #form-field-kg, #form-field-thirdfield').on('input', function() {
-            validateNumberInput(this); // Call the validation function
+            validateNumberInput(this);
         });
 
-        // Click event handlers for section visibility
         $('.first-btn').click(function() {
             $('.first').hide();
             $('.two').show();
-            $('.three, .four, .five, .six').hide(); // Hide other sections
+            $('.three, .four, .five, .six').hide();
         });
 
         $('.first-prev').click(function() {
             $('.two').hide();
             $('.first').show();
-            $('.three, .four, .five, .six').hide(); // Hide other sections
+            $('.three, .four, .five, .six').hide();
         });
 
         $('.second-btn').click(function() {
-            $('.first, .two').hide(); // Hide all sections
-            $('.three').show(); // Show the section with class "three"
-            $('.four, .five, .six').hide(); // Hide other sections
+            $('.first, .two').hide();
+            $('.three').show();
+            $('.four, .five, .six').hide();
         });
 
         $('.third-btn').click(function() {
-            $('.first, .two, .three').hide(); // Hide all sections
-            $('.four').show(); // Show the section with class "four"
-            $('.five, .six').hide(); // Hide other sections
+            $('.first, .two, .three').hide();
+            $('.four').show();
+            $('.five, .six').hide();
         });
 
         $('.third-prev').click(function() {
             $('.two').show();
-            $('.first, .three, .four, .five, .six').hide(); // Hide other sections
+            $('.first, .three, .four, .five, .six').hide();
         });
 
         $('.fifth-btn').click(function() {
-            $('.first, .two, .three, .four').hide(); // Hide all sections
-            $('.five').show(); // Show the section with class "five"
-            $('.six').hide(); // Hide .six
+            $('.first, .two, .three, .four').hide();
+            $('.five').show();
+            $('.six').hide();
         });
 
         $('.eight-next').click(function() {
-            $('.first, .two, .three, .four, .five, .seven, .eight').hide(); // Hide all sections
-            $('.nine').show(); // Show the section with class "nine"
-            // Conditionally show male-show or female-show
+            $('.first, .two, .three, .four, .five, .seven, .eight').hide();
+            $('.nine').show();
             if (selectedGender === 'male') {
                 $('.male-show').show();
                 $('.female-show').hide();
@@ -1026,80 +1020,61 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
         });
 
         $('.six-prev').click(function() {
-            $('.four').show(); // Show the section with class "four"
-            $('.first, .two,.ten-male, .ten-female, .nine , .three, .five, .six').hide(); // Hide other sections
+            $('.four').show();
+            $('.first, .two,.ten-male, .ten-female, .nine , .three, .five, .six').hide();
         });
 
         $('.seven-prev').click(function() {
-            $('.five').show(); // Show the section with class "five"
-            $('.first, .two, .three, .ten-male, .nine , .ten-female, .four, .six').hide(); // Hide other sections
+            $('.five').show();
+            $('.first, .two, .three, .ten-male, .nine , .ten-female, .four, .six').hide();
         });
 
         $('.eight-prev').click(function() {
-            $('.six').show(); // Show the section with class "six"
-            $('.first, .two, .three, .four, .five, .nine ,.ten-male, .ten-female, .seven').hide(); // Hide other sections
+            $('.six').show();
+            $('.first, .two, .three, .four, .five, .nine ,.ten-male, .ten-female, .seven').hide();
         });
 
         $('.nine-prev').click(function() {
-            $('.seven').show(); // Show the section with class "seven"
-            $('.first, .two, .three, .four, .five,  .nine , .ten-male, .ten-female, .eight').hide(); // Hide other sections
+            $('.seven').show();
+            $('.first, .two, .three, .four, .five,  .nine , .ten-male, .ten-female, .eight').hide();
         });
 
         $('.eleven-prev').click(function() {
-            $('.nine').show(); // Show the section with class "seven"
-            $('.first, .two, .three, .four, .five, .eight, .seven, .ten-male, .ten-female, .ten').hide(); // Hide other sections
+            $('.nine').show();
+            $('.first, .two, .three, .four, .five, .eight, .seven, .ten-male, .ten-female, .ten').hide();
         });
 
         $('.ten-prev').click(function() {
-            $('.eight').show(); // Show the section with class "seven"
-            $('.first, .two, .three, .four, .five, .nine').hide(); // Hide other sections
+            $('.eight').show();
+            $('.first, .two, .three, .four, .five, .nine').hide();
         });
 
-        // Handle form submission
         $('#my-form').submit(function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Capture the value of the input field with id "form-field-cmname"
-            userName = $('#form-field-cmname').val(); // Update userName with the latest value
-
-            // Hide all sections and show the section with class "six"
+            event.preventDefault();
+            userName = $('#form-field-cmname').val();
             $('.first, .two, .three, .four, .five').hide();
             $('.six').show();
-
         });
 
-        // Handle form submission
         $('#my-form-2').submit(function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Capture the value of the input field with id "form-field-kg"
-            currentweight = $('#form-field-kg').val(); // Update currentweight with the latest value
-
-            // Hide all sections and show the section with class "seven"
+            event.preventDefault();
+            currentweight = $('#form-field-kg').val();
             $('.first, .two, .three, .four, .five, .six').hide();
             $('.seven').show();
-
         });
 
-        // Handle form submission
         $('#my-form-3').submit(function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Capture the value of the input field with id "form-field-thirdfield"
-            targetweight = $('#form-field-thirdfield').val(); // Update targetweight with the latest value
-
-            // Hide all sections and show the section with class "eight"
+            event.preventDefault();
+            targetweight = $('#form-field-thirdfield').val();
             $('.first, .two, .three, .four, .five, .six, .seven').hide();
             $('.eight').show();
 
-            // Display the targetweight in the span with id "target"
             $('#target').text(targetweight + " kg");
-$('#target-two').text(targetweight + " kg");
-$('#target-three').text(targetweight + " kg");
-$('#target-male').text(targetweight + " kg");
-$('#target-male-two').text(targetweight + " kg");
-$('#target-male-three').text(targetweight + " kg");
-
+            $('#target-two').text(targetweight + " kg");
+            $('#target-three').text(targetweight + " kg");
+            $('#target-male').text(targetweight + " kg");
+            $('#target-male-two').text(targetweight + " kg");
+            $('#target-male-three').text(targetweight + " kg");
 
             $('#current').text(currentweight);
             $('#current-two').text(currentweight);
@@ -1109,51 +1084,48 @@ $('#target-male-three').text(targetweight + " kg");
             $('#current-male-three').text(currentweight);
 
             // Calculate the weight difference
-var weightDifference = Math.abs(currentweight - targetweight);
+            var weightDifference = Math.abs(currentweight - targetweight);
 
-// Get today's date
-// Get today's date
-    var today = new Date();
+            // Calculate number of months needed (5 kg per month)
+            var monthsNeeded = Math.ceil(weightDifference / 5);
 
-    // Add 30 days to the current date
-    var targetDate = new Date();
-    targetDate.setDate(today.getDate() + (weightDifference * 2.5));
+            // Get today's date
+            var today = new Date();
 
-    // Array of month names in the desired format (German)
-    var monthNames = [
-        "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
-        "August", "September", "Oktober", "November", "Dezember"
-    ];
+            // Add monthsNeeded to the current date
+            var targetDate = new Date(today.getFullYear(), today.getMonth() + monthsNeeded, today.getDate());
 
-    // Format the target date as "DD. Monat YYYY" (e.g., "18. Oktober 2025")
-    var formattedDate = targetDate.getDate() + '. ' + monthNames[targetDate.getMonth()] + ' ' + targetDate.getFullYear();
+            // Array of month names in English
+            var monthNames = [
+                "January", "February", "March", "April", "May", "June", "July",
+                "August", "September", "October", "November", "December"
+            ];
 
-    // Display the target date in the span with id "date"
-    $('#date').text(formattedDate);
-    $('#date-male').text(formattedDate);
+            // Format the target date as "DD. Month YYYY"
+            var formattedDate = targetDate.getDate() + '. ' + monthNames[targetDate.getMonth()] + ' ' + targetDate.getFullYear();
 
+            $('#date').text(formattedDate);
+            $('#date-male').text(formattedDate);
         });
 
-        // Click handlers for male and female buttons
         $('.male').click(function() {
-            selectedGender = 'male'; // Set the selected gender to male
+            selectedGender = 'male';
         });
 
         $('.female').click(function() {
-            selectedGender = 'female'; // Set the selected gender to female
+            selectedGender = 'female';
         });
 
-        // Handle clicks for last-male and last-female buttons
         $('.last-male').click(function() {
-            $('.nine').hide();  // Hide section .nine
-            $('.ten-male').show();  // Show section .ten-male
-            $('.ten').show();  // Show section .ten
+            $('.nine').hide();
+            $('.ten-male').show();
+            $('.ten').show();
         });
 
         $('.last-female').click(function() {
-            $('.nine').hide();  // Hide section .nine
-            $('.ten-female').show();  // Show section .ten-female
-            $('.ten').show();  // Show section .ten
+            $('.nine').hide();
+            $('.ten-female').show();
+            $('.ten').show();
         });
     });
 </script>
